@@ -19,9 +19,9 @@ class Scheduler(val presentationDelegate: PresentationDelegate){
 
     init {
         items.apply {
-            add(WebMedia(5, URL("www.google.com")))
+            add(WebMedia(5, URL("http://www.google.com")))
             add(ImageMedia(10, R.drawable.cat))
-            add(WebMedia(5, URL("www.shopify.com")))
+            add(WebMedia(5, URL("http://www.shopify.com")))
         }
         itemIterator = items.iterator()
     }

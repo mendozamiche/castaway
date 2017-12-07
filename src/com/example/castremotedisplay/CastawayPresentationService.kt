@@ -39,10 +39,13 @@ class CastawayPresentationService : CastRemoteDisplayLocalService(), Presentatio
     // First screen
     private var mPresentation: CastPresentation? = null
     private var mMediaPlayer: MediaPlayer? = null
-    private var mScheduler = Scheduler(this)
+    lateinit private var mScheduler: Scheduler
+
 
     override fun onCreate() {
         super.onCreate()
+        mScheduler = Scheduler(this)
+
         // Audio
         mMediaPlayer = MediaPlayer.create(this, R.raw.sound)
         mMediaPlayer?.setVolume(0.1.toFloat(), 0.1.toFloat())
@@ -92,7 +95,7 @@ class CastawayPresentationService : CastRemoteDisplayLocalService(), Presentatio
 
         private val TAG = "FirstScreenPresentation"
 
-        override fun onCreate(savedInstanceState: Bundle) {
+        override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
 
             setContentView(R.layout.first_screen_layout_castaway)
