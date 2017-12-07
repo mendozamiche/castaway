@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CastRemoteDisplay-android.iml" filepath="$PROJECT_DIR$/CastRemoteDisplay-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/castaway.iml" filepath="$PROJECT_DIR$/castaway.iml" />
     </modules>
   </component>
 </project>
