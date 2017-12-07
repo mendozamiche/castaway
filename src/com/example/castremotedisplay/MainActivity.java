@@ -101,22 +101,22 @@ public class MainActivity extends AppCompatActivity {
             new MediaRouter.Callback() {
                 @Override
                 public void onRouteAdded(MediaRouter router, RouteInfo route) {
-                    if (++mRouteCount == 1) {
+//                    if (++mRouteCount >= 1) {
                         // Show the button when a device is discovered.
                         if (mMediaRouterButtonView != null) {
                             mMediaRouterButtonView.setVisibility(View.VISIBLE);
                         }
-                    }
+//                    }
                 }
 
                 @Override
                 public void onRouteRemoved(MediaRouter router, RouteInfo route) {
-                    if (--mRouteCount == 0) {
+//                    if (--mRouteCount == 0) {
                         // Hide the button if there are no devices discovered.
-                        if (mMediaRouterButtonView != null) {
-                            mMediaRouterButtonView.setVisibility(View.GONE);
-                        }
-                    }
+//                        if (mMediaRouterButtonView != null) {
+//                            mMediaRouterButtonView.setVisibility(View.GONE);
+//                        }
+//                    }
                 }
 
                 @Override

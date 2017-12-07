@@ -45,5 +45,5 @@
             android:paddingBottom="1dp"
             android:paddingRight="20dp"
             android:paddingLeft="1dp"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
 </RelativeLayout>

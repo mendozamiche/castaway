@@ -21,7 +21,7 @@ class Scheduler(val presentationDelegate: PresentationDelegate){
         items.apply {
             add(WebMedia(15, URL("https://abetterlookingshop.myshopify.com/")))
             add(WebMedia(10, URL("https://abetterlookingshop.myshopify.com/collections/frontpage/products/messenger-bag?variant=38541589506")))
-            add(WebMedia(20, URL("https://cdn.shopify.com/s/files/1/0295/8581/products/original_1024x1024.jpg?v=1473284865")))
+            add(WebMedia(10, URL("https://cdn.shopify.com/s/files/1/0295/8581/products/original_1024x1024.jpg?v=1473284865")))
             add(WebMedia(15, URL("https://abetterlookingshop.myshopify.com/products/gray-fedora?variant=403285465")))
             add(WebMedia(15, URL("https://cdn.shopify.com/s/files/1/0295/8581/products/gray-fedora_1024x1024.jpeg?v=1384377263")))
         }
@@ -30,14 +30,12 @@ class Scheduler(val presentationDelegate: PresentationDelegate){
 
 
     fun start() {
-        val currentItem: CastawayMedia
-
         if (!itemIterator.hasNext()) {
             itemIterator = items.iterator()
         }
 
         if (itemIterator.hasNext()) {
-            currentItem = itemIterator.next()
+            val currentItem = itemIterator.next()
 
             presentationDelegate.startPresenting(currentItem)
 
