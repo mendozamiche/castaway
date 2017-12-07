@@ -15,20 +15,19 @@
 -->
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <android.support.v7.app.MediaRouteButton
-            android:id="@+id/mediaRouteButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:mediaRouteTypes="user"
-            android:visibility="visible"/>
+    <WebView
+        android:id="@+id/castaway_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        />
 
-    <TextView android:id="@+id/textView"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_centerVertical="true"
-              android:textAppearance="?android:attr/textAppearanceMedium"
-              android:textColor="@color/white"
-              android:text="@string/play"
-              android:textAllCaps="true"/>
+    <ImageView
+        android:id="@+id/castaway_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/castaway_webview"
+        android:src="@drawable/cat"/>
 
 </merge>

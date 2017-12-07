@@ -17,7 +17,7 @@
 <resources>
 
     <string name="app_name">CastRemoteDisplay</string>
-    <string name="app_description">CAST REMOTE DISPLAY SAMPLE</string>
+    <string name="app_description">SHOPIFY CASTAWAY</string>
     <string name="app_id">2A299C83</string>
     <string name="presentation_with_media_router_activity_text">This activity demonstrates how to use CastRemoteDisplay.</string>
     <string name="presentation_with_media_router_play_on">Play on...</string>
