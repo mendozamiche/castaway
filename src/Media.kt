@@ -1,5 +1,6 @@
 package com.example.castremotedisplay
 
+import android.support.annotation.DrawableRes
 import java.net.URL
 
 /**
@@ -13,4 +14,5 @@ interface  CastawayMedia {
 
 data class WebMedia(override var duration: Long, val url: URL): CastawayMedia
 
-data class ImageMedia(override var duration: Long, val imageName: String): CastawayMedia
+
+data class ImageMedia(override var duration: Long, @DrawableRes val id: Int): CastawayMedia

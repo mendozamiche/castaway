@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_layout);
         setFullScreen();
 
-        TextView titleTextView = (TextView) findViewById(R.id.title);
+        TextView titleTextView = findViewById(R.id.title);
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
         titleTextView.setTypeface(typeface);
 
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         mMediaRouter = MediaRouter.getInstance(getApplicationContext());
 
         // Set the MediaRouteButton selector for device discovery.
-        mMediaRouterButtonView = (MediaRouterButtonView) findViewById(R.id.media_route_button_view);
+        mMediaRouterButtonView = findViewById(R.id.media_route_button_view);
         if (mMediaRouterButtonView != null) {
             mMediaRouteButton = mMediaRouterButtonView.getMediaRouteButton();
             mMediaRouteButton.setRouteSelector(mMediaRouteSelector);

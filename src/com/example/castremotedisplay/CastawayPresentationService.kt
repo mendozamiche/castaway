@@ -22,22 +22,24 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.view.Display
+import android.view.View
 import android.view.WindowManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.ImageView
 import android.widget.TextView
-
 import com.google.android.gms.cast.CastPresentation
 import com.google.android.gms.cast.CastRemoteDisplayLocalService
 
 /**
  * Service to keep the remote display running even when the app goes into the background
  */
-class CastawayPresentationService : CastRemoteDisplayLocalService() {
+class CastawayPresentationService : CastRemoteDisplayLocalService(), PresentationDelegate {
 
     // First screen
     private var mPresentation: CastPresentation? = null
     private var mMediaPlayer: MediaPlayer? = null
+    private var mScheduler = Scheduler(this)
 
     override fun onCreate() {
         super.onCreate()
@@ -45,6 +47,7 @@ class CastawayPresentationService : CastRemoteDisplayLocalService() {
         mMediaPlayer = MediaPlayer.create(this, R.raw.sound)
         mMediaPlayer?.setVolume(0.1.toFloat(), 0.1.toFloat())
         mMediaPlayer?.isLooping = true
+        mScheduler.start()
     }
 
     override fun onCreatePresentation(display: Display) {
@@ -65,7 +68,7 @@ class CastawayPresentationService : CastRemoteDisplayLocalService() {
 
     private fun createPresentation(display: Display) {
         dismissPresentation()
-        mPresentation = CastAwayPresentationService(this, display)
+        mPresentation = CastAwayPresentation(this, display)
 
         try {
             mPresentation?.show()
@@ -85,7 +88,7 @@ class CastawayPresentationService : CastRemoteDisplayLocalService() {
      * presentation's own [Context] whenever we load resources.
      *
      */
-    private inner class CastAwayPresentationService(context: Context, display: Display) : CastPresentation(context, display) {
+    private inner class CastAwayPresentation(context: Context, display: Display) : CastPresentation(context, display) {
 
         private val TAG = "FirstScreenPresentation"
 
@@ -109,6 +112,41 @@ class CastawayPresentationService : CastRemoteDisplayLocalService() {
                 return true
             }
         }
+    }
+
+    override fun startPresenting(media: CastawayMedia) {
+        when (media) {
+            is WebMedia -> showInWebView(media)
+            is ImageMedia -> showInImageView(media)
+        }
+    }
+
+    private fun showInWebView(media: WebMedia) {
+        val webView = mPresentation?.findViewById<WebView>(R.id.castaway_webview)
+        val imageView = mPresentation?.findViewById<ImageView>(R.id.castaway_imageview)
+
+        imageView?.visibility = View.GONE
+
+        webView?.apply {
+            visibility = View.VISIBLE
+            loadUrl(media.url.toString())
+        }
+    }
+
+    private fun showInImageView(media: ImageMedia) {
+        val webView = mPresentation?.findViewById<WebView>(R.id.castaway_webview)
+        val imageView = mPresentation?.findViewById<ImageView>(R.id.castaway_imageview)
+
+        webView?.visibility = View.GONE
+
+        imageView?.apply {
+            visibility = View.VISIBLE
+            imageView.setImageResource(media.id)
+        }
+    }
+
+    override fun stopPresenting() {
+        // Nothing to do for now
     }
 
     companion object {
