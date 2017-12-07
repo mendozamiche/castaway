@@ -100,9 +100,9 @@ class CastawayPresentationService : CastRemoteDisplayLocalService(), Presentatio
 
             setContentView(R.layout.first_screen_layout_castaway)
 
-            val titleTextView = findViewById<TextView>(R.id.title)
-            val typeface = Typeface.createFromAsset(assets, "fonts/Roboto-Light.ttf")
-            titleTextView.typeface = typeface
+//            val titleTextView = findViewById<TextView>(R.id.title)
+//            val typeface = Typeface.createFromAsset(assets, "fonts/Roboto-Light.ttf")
+//            titleTextView.typeface = typeface
             val webView = findViewById<WebView>(R.id.castaway_webview)
             webView.settings.javaScriptEnabled = true
             webView.loadUrl("http://www.google.com")

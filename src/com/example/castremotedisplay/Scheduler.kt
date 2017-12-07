@@ -19,25 +19,31 @@ class Scheduler(val presentationDelegate: PresentationDelegate){
 
     init {
         items.apply {
-            add(WebMedia(5, URL("http://www.google.com")))
-            add(ImageMedia(10, R.drawable.cat))
-            add(WebMedia(5, URL("http://www.shopify.com")))
+            add(WebMedia(5, URL("https://abetterlookingshop.myshopify.com/")))
+            add(ImageMedia(5, R.drawable.cat))
+            add(WebMedia(5, URL("https://agoodlookingshop.myshopify.com/")))
+            add(WebMedia(5, URL("https://canadianmade.co/")))
         }
         itemIterator = items.iterator()
     }
 
 
     fun start() {
+        val currentItem: CastawayMedia
+
+        if (!itemIterator.hasNext()) {
+            itemIterator = items.iterator()
+        }
 
         if (itemIterator.hasNext()) {
-            val currentItem = itemIterator.next()
+            currentItem = itemIterator.next()
 
             presentationDelegate.startPresenting(currentItem)
 
             handler.postDelayed({
                 presentationDelegate.stopPresenting()
                 start()
-            }, currentItem.duration)
+            }, currentItem.duration * 1000)
         }
 
     }
