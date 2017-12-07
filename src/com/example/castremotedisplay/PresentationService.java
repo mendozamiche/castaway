@@ -100,9 +100,13 @@ public class PresentationService extends CastRemoteDisplayLocalService {
      * presentation's own {@link Context} whenever we load resources.
      * </p>
      */
+
+
     private class FirstScreenPresentation extends CastPresentation {
 
         private final String TAG = "FirstScreenPresentation";
+
+        private Scheduler scheduler;
 
         public FirstScreenPresentation(Context context, Display display) {
             super(context, display);
