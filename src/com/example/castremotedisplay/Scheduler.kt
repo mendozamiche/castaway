@@ -18,9 +18,9 @@ class Scheduler(val presentationDelegate: PresentationDelegate) {
 
     init {
         items.apply {
-            add(WebMedia(5, URL("https://thumbs.dreamstime.com/b/christmas-sale-sign-background-green-chalkboard-large-star-says-red-white-capital-letters-branches-evergreen-sprigs-34939191.jpg")))
-            add(ImageMedia(5, R.drawable.ad1))
+            add(ImageMedia(5, R.drawable.christmas))
             add(ImageMedia(5, R.drawable.ad2))
+            add(ImageMedia(5, R.drawable.ad1))
             add(ImageMedia(5, R.drawable.ad3))
         }
         itemIterator = items.iterator()

@@ -15,8 +15,17 @@
 -->
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <ImageView
+        android:id="@+id/castaway_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/rocket"/>
+
     <WebView
         android:id="@+id/castaway_webview_1"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
@@ -29,13 +38,5 @@
         android:layout_alignParentTop="true"
         android:visibility="gone"
         />
-
-    <ImageView
-        android:id="@+id/castaway_imageview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@id/castaway_webview_1"
-        android:scaleType="fitCenter"/>
 
 </merge>
