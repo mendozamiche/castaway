@@ -18,6 +18,8 @@ package com.example.castremotedisplay;
 
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -127,6 +129,12 @@ public class CastRemoteDisplayActivity extends AppCompatActivity {
         MediaRouteActionProvider mediaRouteActionProvider =
                 (MediaRouteActionProvider) MenuItemCompat.getActionProvider(mediaRouteMenuItem);
         mediaRouteActionProvider.setRouteSelector(mMediaRouteSelector);
+
+        Drawable drawable = mediaRouteMenuItem.getIcon();
+        if(drawable != null) {
+            drawable.mutate();
+            drawable.setColorFilter(getResources().getColor(R.color.purple), PorterDuff.Mode.SRC_ATOP);
+        }
         // Return true to show the menu.
         return true;
     }
