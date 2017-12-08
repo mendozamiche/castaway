@@ -17,7 +17,6 @@
 package com.example.castremotedisplay
 
 import android.content.Context
-import android.graphics.Typeface
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
@@ -27,7 +26,6 @@ import android.view.WindowManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ImageView
-import android.widget.TextView
 import com.google.android.gms.cast.CastPresentation
 import com.google.android.gms.cast.CastRemoteDisplayLocalService
 
@@ -99,13 +97,8 @@ class CastawayPresentationService : CastRemoteDisplayLocalService(), Presentatio
             super.onCreate(savedInstanceState)
 
             setContentView(R.layout.first_screen_layout_castaway)
-
-//            val titleTextView = findViewById<TextView>(R.id.title)
-//            val typeface = Typeface.createFromAsset(assets, "fonts/Roboto-Light.ttf")
-//            titleTextView.typeface = typeface
             val webView = findViewById<WebView>(R.id.castaway_webview)
             webView.settings.javaScriptEnabled = true
-            webView.loadUrl("http://www.google.com")
             webView.webViewClient = WebViewController()
         }
 
