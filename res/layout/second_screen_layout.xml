@@ -19,9 +19,8 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@drawable/background">
+        android:layout_height="match_parent" xmlns:custom="http://schemas.android.com/tools"
+        android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -30,18 +29,26 @@
             android:layout_width="match_parent"
             android:minHeight="?attr/actionBarSize"
             android:background="@drawable/ab_transparent_transparent"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:theme="@style/ThemeOverlay.AppCompat.Light"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <!-- Message to show to user. -->
     <TextView
             android:id="@+id/text"
-            android:layout_width="match_parent"
+            android:layout_marginBottom="60dp"
+            android:layout_marginTop="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:gravity="center_vertical|center_horizontal"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/purple"
+            android:textSize="27dp"
             android:text="@string/presentation_with_media_router_activity_text"/>
 
+    <ImageView android:layout_width="200dp" android:layout_height="200dp"
+               android:background="@drawable/enable_20_location_20_services"
+               android:layout_gravity="center_horizontal"
+               android:layout_marginBottom="20dp"
+    />
 
 </LinearLayout>

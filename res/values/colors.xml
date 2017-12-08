@@ -19,5 +19,5 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="purple">#5c6ac4</color>
-    <color name="window">#FFFFFFFF</color>
+    <color name="window">#FFFFFF</color>
 </resources>

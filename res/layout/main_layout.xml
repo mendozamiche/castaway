@@ -27,9 +27,10 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="160dp"
             android:gravity="center_vertical|center_horizontal"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="27dp"
             android:textColor="@color/purple"
             android:text="@string/app_description"
+            android:layout_marginBottom="30dp"
             android:textAllCaps="false"/>
 
     <ImageView
@@ -39,7 +40,7 @@
                android:layout_height="wrap_content"
                android:layout_below="@id/title"
                android:layout_centerHorizontal="true"
-                android:background="@drawable/ic_rate_app"
+                android:background="@drawable/rocket"
     />
 
     <com.example.castremotedisplay.MediaRouterButtonView
