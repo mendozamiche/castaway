@@ -127,14 +127,12 @@ class CastawayPresentationService : CastRemoteDisplayLocalService(), Presentatio
         private val TAG = "FirstScreenPresentation"
 
         lateinit var castawayView: CastawayView
-        var progressBar: ProgressBar? = null
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
 
             setContentView(R.layout.first_screen_layout_castaway)
 
             castawayView = findViewById<CastawayView>(R.id.castaway_view)
-            progressBar = findViewById<ProgressBar>(R.id.progress_bar)
 
 //            val webView = findViewById<WebView>(R.id.castaway_webview)
 //            webView.settings.javaScriptEnabled = true
@@ -148,7 +146,6 @@ class CastawayPresentationService : CastRemoteDisplayLocalService(), Presentatio
             }
 
             override fun onPageFinished(view: WebView?, url: String?) {
-                progressBar?.visibility = View.GONE
                 val animation = AnimationUtils.loadAnimation(baseContext, android.R.anim.slide_in_left)
                 view?.startAnimation(animation)
                 view?.visibility = View.VISIBLE;

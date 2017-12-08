@@ -46,6 +46,8 @@ class CastawayView : RelativeLayout {
             webView1.visibility = View.GONE
             webView2.visibility = View.VISIBLE
             webView2.loadUrl(stringUrl)
+            webView2.settings.useWideViewPort = true
+            webView2.settings.loadWithOverviewMode = true
         } else {
             webView1.visibility = View.VISIBLE
             webView2.visibility = View.GONE
