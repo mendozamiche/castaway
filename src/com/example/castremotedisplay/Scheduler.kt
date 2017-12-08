@@ -8,26 +8,23 @@ interface PresentationDelegate {
     fun stopPresenting()
 }
 
-
-class Scheduler(val presentationDelegate: PresentationDelegate){
+class Scheduler(val presentationDelegate: PresentationDelegate) {
 
     val items = ArrayList<CastawayMedia>()
-    var itemIterator : Iterator<CastawayMedia>
-    lateinit var currentRunnable : Runnable
+    var itemIterator: Iterator<CastawayMedia>
+    lateinit var currentRunnable: Runnable
 
     val handler = Handler()
 
     init {
         items.apply {
-            add(WebMedia(15, URL("https://abetterlookingshop.myshopify.com/")))
-            add(WebMedia(10, URL("https://abetterlookingshop.myshopify.com/collections/frontpage/products/messenger-bag?variant=38541589506")))
-            add(WebMedia(10, URL("https://cdn.shopify.com/s/files/1/0295/8581/products/original_1024x1024.jpg?v=1473284865")))
-            add(WebMedia(15, URL("https://abetterlookingshop.myshopify.com/products/gray-fedora?variant=403285465")))
-            add(WebMedia(15, URL("https://cdn.shopify.com/s/files/1/0295/8581/products/gray-fedora_1024x1024.jpeg?v=1384377263")))
+            add(WebMedia(10, URL("https://thumbs.dreamstime.com/b/christmas-sale-sign-background-green-chalkboard-large-star-says-red-white-capital-letters-branches-evergreen-sprigs-34939191.jpg")))
+            add(WebMedia(10, URL("https://cdn.shopify.com/s/files/1/1922/8593/files/ad1.png?7711175712246154514")))
+            add(WebMedia(10, URL("https://cdn.shopify.com/s/files/1/1922/8593/files/ad2.png?7711175712246154514")))
+            add(WebMedia(10, URL("https://cdn.shopify.com/s/files/1/1922/8593/files/ad3.png?7711175712246154514")))
         }
         itemIterator = items.iterator()
     }
-
 
     fun start() {
         if (!itemIterator.hasNext()) {
@@ -44,12 +41,10 @@ class Scheduler(val presentationDelegate: PresentationDelegate){
                 start()
             }, currentItem.duration * 1000)
         }
-
     }
 
     fun stop() {
         presentationDelegate.stopPresenting()
         handler.removeCallbacks(currentRunnable)
     }
-
 }
